@@ -4,8 +4,12 @@ my collection of bioinformatics one liners that is useful in my day-to-day work
 ### I came across the bioinformatics one-liners on the [biostar](https://www.biostars.org/p/142545/) forum and gathered them here.
 I also added some of my own tricks
 
-05/21/2015.
 
+####  listen to the output of log files in real time using tail. 
+
+```bash
+'tail -f *.log'  
+```
 
 
 ####  get the sequences length distribution form a fastq file using awk
