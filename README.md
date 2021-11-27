@@ -8,7 +8,7 @@ I also added some of my own tricks
 ####  listen to the output of log files in real time using tail. 
 
 ```bash
-'tail -f *.log'  
+tail -f *.log  
 ```
 
 
