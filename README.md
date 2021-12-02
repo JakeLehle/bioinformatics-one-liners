@@ -105,11 +105,7 @@ awk '/^>/ {if (seqlen){print seqlen}; print ;seqlen=0;next; } { seqlen = seqlen 
 
 ```bash
 cat file.fq | paste - - - - | awk 'BEGIN{srand(1234)}{if(rand() < 0.01) print $0}' | tr '\t' '\n' > out.fq
-```
-
-### If the FASTQ file is gzipped and you want to produce a gizzped output.
-
-```bash
+# If the FASTQ file is gzipped and you want to produce a gizzped output.
 zcat file.fq.gz | paste - - - - | awk 'BEGIN{srand(1234)}{if(rand() < 0.01) print $0}' | tr '\t' '\n' > out.fq | gzip out.fq
 ```
 
