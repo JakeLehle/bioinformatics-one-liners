@@ -101,11 +101,18 @@ fold -w 60 file
 ```bash
 awk '/^>/ {if (seqlen){print seqlen}; print ;seqlen=0;next; } { seqlen = seqlen +length($0)}END{print seqlen}' file.fa
 ```
-#### Reproducible subsampling of a FASTQ file. srand() is the seed for the random number generator - keeps the subsampling the same when the script is run multiple times.  0.01 is the % of reads to output. THIS DOES NOT WORK! -JL
+#### Reproducible subsampling of a FASTQ file. srand() is the seed for the random number generator - keeps the subsampling the same when the script is run multiple times.  0.01 is the % of reads to output. 
 
 ```bash
 cat file.fq | paste - - - - | awk 'BEGIN{srand(1234)}{if(rand() < 0.01) print $0}' | tr '\t' '\n' > out.fq
 ```
+
+### If the FASTQ file is gzipped and you want to produce a gizzped output.
+
+```bash
+zcat file.fq.gz | paste - - - - | awk 'BEGIN{srand(1234)}{if(rand() < 0.01) print $0}' | tr '\t' '\n' > out.fq | gzip out.fq
+```
+
 #### or look at the Hengli's Seqtk 
 
 #### Deinterleaving a FASTQ:
