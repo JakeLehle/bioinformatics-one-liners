@@ -9,6 +9,10 @@ I also added some of my own tricks
 #### This requires installation of the sequan c++ package along with the mason2 apps. Generate 1000 paired end methylated reads for testing accruacy of alligners.
 ```
 mason_simulator --methylation-levels -ir GRCm39.genome.fa -n 1000 -o accuracy1_1.fastq -or accuracy1_2.fastq -oa accuracy1.bam
+samtools sort -o mason/accuracy1.bam mason/accuracy1.bam
+samtools index -b mason/accuracy1.bam
+multiBamSummary bins --bamfiles results_accuracy1/alignment/accuracy1.bam mason/accuracy1.bam -o results1.npz
+plotCorrelation --corData results1.npz -p scatterplot -c spearman -o results1.pdf
 ```
 
 
