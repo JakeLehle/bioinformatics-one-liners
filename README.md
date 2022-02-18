@@ -1,8 +1,15 @@
 # bioinformatics-one-liners
 my collection of bioinformatics one liners that is useful in my day-to-day work
 
+
 ### I came across the bioinformatics one-liners on the [biostar](https://www.biostars.org/p/142545/) forum and gathered them here.
 I also added some of my own tricks
+
+
+#### This requires installation of the sequan c++ package along with the mason2 apps. Generate 100 paired end methylated reads for testing accruacy of alligners.
+```
+mason_methylation -v -i refence_genome.fasta -o methylation_reads/test_2.fastq.gz --methylation-levels
+```
 
 
 ####  listen to the output of log files in real time using tail. 
